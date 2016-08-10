@@ -1,0 +1,25 @@
+<%= form_for(@comment, html: {class: "nifty_form", :style => 'width: 40%;'}) do |f| %>
+
+    <div class="form-group">
+      <%= f.label 'Ваше Ім\'я:' %><br>
+      <%= f.text_field :user_name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label 'Куди ми їхали:' %><br>
+      <%= f.text_field :where_we_went, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label 'Email:' %><br>
+      <%= f.text_field :email, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label 'Опис відгуку:' %><br>
+      <%= f.text_area :description, class: "form-control", size: "60x12" %>
+    </div>
+    <div class="form-group">
+      <%= f.label 'Оцінка:' %><br>
+      <%= f.number_field :rating, class: "form-control" %>
+    </div>
+
+    <%= f.submit "Надіслати" %>
+<% end %>
