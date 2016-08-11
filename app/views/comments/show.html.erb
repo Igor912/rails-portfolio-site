@@ -22,3 +22,11 @@
   <strong>Оцінка:</strong>
   <%= @comment.rating %>
 </div>
+<br>
+<div>
+  <strong>Коли:</strong>
+  <%= @comment.created_at.strftime("%B, %d, %Y") %>
+</div>
+
+<br>
+<%= link_to 'Повернутись', :back, :class => 'btn btn-default' %>
