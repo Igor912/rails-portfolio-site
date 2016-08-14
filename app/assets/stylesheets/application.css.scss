@@ -3,7 +3,7 @@
  * listed below.
  *
  * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
  *
  * You're free to add application-wide styles to this file and they'll appear at the bottom of the
  * compiled file so the styles you add here take precedence over styles defined in any styles
@@ -13,16 +13,263 @@
  *= require_tree .
  *= require_self
  */
-@import "bootstrap-sprockets";
-@import "bootstrap";
 
-#wrapper
-{
-  float: left;
-  width: 100%;
-  margin: 0 auto;
-  margin-left: -50%;
-  position: relative;
-  left: 50%;
-  text-align: left;
+@import 'normalize';
+
+html, body {
+  font-family: 'Ubuntu', Charter, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#sidebar {
+  width: 250px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: #f5f7f9;
+  padding: 7em 0 0 0;
+  border-right: 1px solid #d6dce0;
+  #logo {
+    width: 40px;
+    position: absolute;
+    right: 3em;
+    top: 3em;
+  }
+  ul {
+    list-style: none;
+    text-align: right;
+    padding-right: 3em;
+    //.category {
+    //  font-weight: 700;
+    //  font-size: 0.7em;
+    //  text-transform: uppercase;
+    //  color: #33acb7;
+    //}
+    li {
+      padding: .5em 0;
+      a {
+        color: #9eafba;
+        text-decoration: none;
+        transition: all .4s ease;
+        &:hover {
+          color: #33acb7;
+        }
+      }
+    }
+    .active {
+      a {
+        color: #33acb7;
+      }
+    }
+  }
+  .sign_in {
+    position: absolute;
+    right: 3em;
+    top: 80%;
+    font-size: .8em;
+    color: #9eafba;
+  }
+  .copyright {
+    position: absolute;
+    right: 3em;
+    top: 82%;
+    font-size: .8em;
+    color: #9eafba;
+  }
+}
+
+.round_button {
+  outline: none;
+  background: transparent;
+  border: 1px solid #d6dce0;
+  padding: .5em 1.5em;
+  border-radius: 1.5em;
+  &:hover {
+    border: 1px solid #33acb7;
+    color: #33acb7;
+    a {
+      color: #33acb7 !important;
+    }
+  }
+}
+
+.button_without_border {
+  outline: none;
+  background: transparent;
+  border: none;
+  padding: .5em 1.5em;
+  &:hover {
+    color: #33acb7;
+    a {
+      color: #33acb7 !important;
+    }
+  }
+}
+
+#main_content {
+  margin-left: 250px;
+  #header {
+    padding: 1.1em 3em;
+    border-bottom: 1px solid #d6dce0;
+    background: #f5f7f9;
+    color: #9eafba;
+    p {
+      display: inline;
+    }
+    a {
+      color: #9eafba;
+      text-decoration: none;
+    }
+    .page_title {
+      //font-size: 1.4em;
+    }
+    .buttons {
+      float: right;
+      margin-top: -5px;
+      .round_button {
+        font-size: .8em;
+        margin-left: .5em;
+      }
+    }
+    .button_without_border {
+      display: inline;
+      margin-top: -6px;
+      margin-bottom: -8px;
+      margin-left: 1.7em;
+    }
+  }
+  .comment_wrapper {
+    padding: 1.5em;
+    border-bottom: 1px solid #d6dce0;
+    span {
+      font-size: .7em;
+    }
+    a {
+      text-decoration: none;
+      color: #2a2f35;
+      font-size: 1em;
+      &:hover {
+        color: #33acb7;
+      }
+    }
+
+    .body {
+      margin: 0;
+    }
+    .author {
+      font-weight: 500;
+      color: #2a2f35;
+      margin: .5em 1.2em 0 0;
+      display:inline-block;
+    }
+    .date {
+      color: #9eafba;
+      margin: .5em 1.2em 0 0;
+      display:inline-block;
+    }
+    .other_labels {
+      margin: .5em 1.2em 0 0;
+      display:inline-block;
+    }
+  }
+  #comment_content {
+    padding: 1em 3em;
+    margin: .5em 0 2em 0;
+    span {
+      font-size: .8em;
+    }
+    .body {
+      font-size: 1.3em;
+      line-height: 1;
+    }
+    .author {
+      font-weight: 500;
+      text-decoration: none;
+      color: #2a2f35;
+    }
+    .date {
+      color: #9eafba;
+    }
+  }
+  #page_wrapper {
+    padding: 0 3em 3em 3em;
+
+    .form {
+      width: 40%;
+      div {
+        padding-bottom: 20px;
+      }
+      textarea {
+        height: 250px;
+      }
+    }
+    #profile_image {
+      width: 300px;
+      float: left;
+      margin-right: 2em;
+      img {
+        width: 100%;
+        border-radius: 0.35em;
+      }
+    }
+    #content {
+      h1 {
+        font-weight: 500;
+      }
+      p {
+        font-size: 1.1em;
+        line-height: 1.75;
+      }
+      a {
+        color: #33acb7;
+        font-weight: 700;
+        text-decoration: none;
+      }
+    }
+  }
+  .links {
+    margin: 2em 0;
+  }
+  input[type="text"], input[type="email"], input[type="password"], textarea, input[type="number"] {
+    width: 90%;
+    border: 1px solid #d6dce0;
+    border-radius: .35em;
+    margin-top: 10px;
+    padding: .5em 1em;
+    line-height: 1.75;
+  }
+  input[type="text"] {
+    height: 30px;
+  }
+  textarea {
+    min-height: 180px;
+  }
+  input[type="number"] {
+    height: 30px;
+    width: 40%;
+    border-left: 1px solid #BBB;
+    opacity: .5;
+  }
+  input[type="submit"] {
+    outline: none;
+    background: transparent;
+    border: 1px solid #d6dce0;
+    padding: .5em 1.5em;
+    font-size: 1.1em;
+    border-radius: 1.5em;
+    margin-left: .5em;
+    &:hover {
+      border: 1px solid #33acb7;
+      color: #33acb7;
+    }
+  }
 }

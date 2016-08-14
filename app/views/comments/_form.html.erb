@@ -1,26 +1,36 @@
-<%= form_for(@comment, html: {class: "nifty_form", :style => 'width: 40%;'}) do |f| %>
+<%= form_for(@comment, html: {class: "form"}) do |f| %>
 
-    <div class="form-group">
+    <% if @comment.errors.any? %>
+        <div id="errors">
+          <h2><%= pluralize(@comment.errors.count, "error") %> prevented this comment from saving:</h2>
+          <ul>
+            <% @comment.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div>
       <%= f.label 'Ваше Ім\'я:' %><br>
-      <%= f.text_field :user_name, class: "form-control" %>
+      <%= f.text_field :user_name %>
     </div>
-    <div class="form-group">
+    <div>
       <%= f.label 'Куди ми їхали:' %><br>
-      <%= f.text_field :where_we_went, class: "form-control" %>
+      <%= f.text_field :where_we_went %>
     </div>
-    <div class="form-group">
+    <div>
       <%= f.label 'Email:' %><br>
-      <%= f.text_field :email, class: "form-control" %>
+      <%= f.text_field :email, type: "email" %>
     </div>
-    <div class="form-group">
+    <div>
       <%= f.label 'Опис відгуку:' %><br>
-      <%= f.text_area :description, class: "form-control", size: "60x12" %>
+      <%= f.text_area :description %>
     </div>
-    <div class="form-group">
+    <div>
       <%= f.label 'Оцінка:' %><br>
-      <%= f.number_field :rating, class: "form-control" %>
+      <%= f.number_field :rating, :value => 5, in: 1...6 %>
     </div>
 
-    <%= f.submit "Надіслати", class: "btn btn-info" %>
-    <%= link_to 'Повернутись', :back, :class => 'btn btn-default' %>
+    <%= f.submit "Надіслати", class: "submit" %>
 <% end %>

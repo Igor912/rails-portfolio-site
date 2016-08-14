@@ -45,5 +45,4 @@ group :development do
   gem 'spring'
 end
 
-gem 'bootstrap-sass'
 gem 'devise'

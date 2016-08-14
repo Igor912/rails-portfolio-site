@@ -3,40 +3,50 @@
 <head>
   <title>Пасажирські автоперевезення</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Ubuntu:300' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= favicon_link_tag 'favicon.ico' %>
 </head>
 <body>
 
-  <nav class="navbar navbar-default">
-    <div class="container">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <%= link_to "Головна", root_url, class: "navbar-brand" %> <!--instead of <a class="navbar-brand" href="#">Головна</a>-->
-      </div>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li><%= link_to "Відгуки", comments_path %></li>  <!--<li><a href="#">Відгуки <span class="sr-only">(current)</span></a></li>-->
-        </ul>
-      </div>
+  <div id="sidebar">
+    <div id="logo">
+      <%= link_to root_path do %>
+        <%image_tag "logo.png" %>
+      <% end %>
     </div>
-  </nav>
+    <ul>
+      <li><%= link_to "Головна", root_url %></li>
+      <li><%= link_to "Відгуки", comments_path %></li>
+      <li><%= link_to "Прийом замовлень", root_path %></li>
+    </ul>
 
-  <div class="container">
-    <div id="wrapper">
-      <%= yield %>
-    </div>
+    <p class="sign_in"><%= link_to "Увійти, як Адмін", root_path %></p>
+    <p class="copyright">© 2016 - Ihor Khomiak</p>
   </div>
 
-  <br><br><br><br>
-  <div class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container">
-      <p class="navbar-text pull-right">© 2016 - Ihor Khomiak</p>
+  <div id="main_content">
+    <div id="header">
+      <% if current_page?(root_path) %>
+          <p class="page_title">Головна</p>
+      <% elsif current_page?(comments_path) %>
+          <p class="page_title">Відгуки</p>
+          <button class="button_without_border"><%= link_to "Додати", new_comment_path %></button>
+      <% else %>
+            <button class="button_without_border"><%= link_to "Повернутись", :back %></button>
+      <% end %>
 
-      <!--<a href="http://youtu.be/zJahlKPCL9g" class="navbar-btn btn-danger btn pull-right">-->
-        <!--<span class="glyphicon glyphicon-star"></span>  Subscribe on YouTube-->
-      <!--</a>-->
+      <div class="buttons">
+        <button class="round_button">Вийти</button>
+      </div>
     </div>
+
+    <% flash.each do |name, msg| %>
+        <%= content_tag(:div, msg, class: "alert") %>
+    <% end %>
+
+    <%= yield %>
   </div>
 
 </body>
