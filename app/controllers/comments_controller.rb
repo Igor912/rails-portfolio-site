@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show, :new]
 
   def index
     @comments = Comment.all
@@ -21,6 +22,25 @@ class CommentsController < ApplicationController
       flash[:error] = @comment.errors.full_messages
       redirect_ro new_comment_path
     end
+  end
+
+  def edit
+    @comment = Comment.find(params[:id])
+  end
+
+  def update
+    @comment = Comment.find(params[:id])
+    if @comment.update(params[:comment].permit(:description, :user_name, :where_we_went, :rating, :email))
+      redirect_to @comment
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    redirect_to comments_path
   end
 
   private

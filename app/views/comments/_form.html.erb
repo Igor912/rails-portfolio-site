@@ -29,7 +29,11 @@
     </div>
     <div>
       <%= f.label 'Оцінка:' %><br>
-      <%= f.number_field :rating, :value => 5, in: 1...6 %>
+      <% if current_page?(new_comment_path) %>
+          <%= f.number_field :rating, :value => 5, in: 1...6 %>
+      <% else %>
+          <%= f.number_field :rating, in: 1...6 %>
+      <% end %>
     </div>
 
     <%= f.submit "Надіслати", class: "submit" %>

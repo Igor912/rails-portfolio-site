@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20160811072214) do
     t.string   "email"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.date     "comment_date"
   end
 
   create_table "users", force: :cascade do |t|

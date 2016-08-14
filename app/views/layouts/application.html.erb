@@ -22,7 +22,11 @@
       <li><%= link_to "Прийом замовлень", root_path %></li>
     </ul>
 
-    <p class="sign_in"><%= link_to "Увійти, як Адмін", root_path %></p>
+    <% if !user_signed_in? %>
+      <p class="sign_in"><%= link_to "Увійти, як Адмін", new_user_session_path %></p>
+    <% else %>
+        <p class="sign_in">Ви увійшли, як Адмін</p>
+    <% end %>
     <p class="copyright">© 2016 - Ihor Khomiak</p>
   </div>
 
@@ -37,9 +41,11 @@
             <button class="button_without_border"><%= link_to "Повернутись", :back %></button>
       <% end %>
 
-      <div class="buttons">
-        <button class="round_button">Вийти</button>
-      </div>
+      <% if user_signed_in? %>
+        <div class="buttons">
+          <button class="round_button"><%= link_to "Вийти", destroy_user_session_path, :method => :delete %></button>
+        </div>
+      <% end %>
     </div>
 
     <% flash.each do |name, msg| %>
