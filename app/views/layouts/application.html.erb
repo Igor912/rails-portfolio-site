@@ -24,8 +24,10 @@
 
     <% if !user_signed_in? %>
       <p class="sign_in"><%= link_to "Увійти, як Адмін", new_user_session_path %></p>
-    <% else %>
+    <% elsif user_signed_in? && current_user.admin? %>
         <p class="sign_in">Ви увійшли, як Адмін</p>
+    <% else %>
+        <p class="sign_in">Ви увійшли, як <%= current_user.email.split('@')[0] %></p>
     <% end %>
     <p class="copyright">© 2016 - Ihor Khomiak</p>
   </div>

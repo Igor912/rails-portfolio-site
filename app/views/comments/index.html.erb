@@ -4,7 +4,7 @@
     <div class="author"><span>Автор:   </span><%= comment.user_name %></div>
     <div class="date"><%= time_ago_in_words(comment.created_at) %></div>
     <div class="other_labels"><%= link_to "Деталі", comment %></div>
-    <% if user_signed_in? %>
+    <% if user_signed_in? && current_user.admin? %>
       <div class="other_labels"><%= link_to "Редагувати", edit_comment_path(comment) %></div>
       <div class="other_labels"><%= link_to "Видалити", comment_path(comment), method: :delete, data: {confirm: "Чи ви впевненні?"} %></div>
     <% end %>
