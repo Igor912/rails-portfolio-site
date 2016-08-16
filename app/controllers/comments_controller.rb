@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show, :new]
+  before_action :authenticate_user!, except: [:index, :show, :new, :create]
 
   def index
     @comments = Comment.all
@@ -19,8 +19,8 @@ class CommentsController < ApplicationController
       flash[:notice] = "Відгук успішно додано!"
       redirect_to comment_path(@comment)
     else
-      flash[:error] = @comment.errors.full_messages
-      redirect_ro new_comment_path
+      flash[:alert] = @comment.errors.full_messages
+      redirect_to new_comment_path
     end
   end
 

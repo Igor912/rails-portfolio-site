@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_user!, except: [:show, :new]
+  before_action :authenticate_user!, except: [:show, :new, :create]
 
   def index
     @orders = Order.all
