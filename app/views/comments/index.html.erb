@@ -1,5 +1,5 @@
 <% @comments.each do |comment| %>
-  <div class="comment_wrapper">
+  <div class="comment_and_order_wrapper">
     <h2 class="body"> <%= comment.description %></h2>
     <div class="author"><span>Автор:   </span><%= comment.user_name %></div>
     <div class="date"><%= time_ago_in_words(comment.created_at) %></div>

@@ -19,7 +19,7 @@
     <ul>
       <li><%= link_to "Головна", root_url %></li>
       <li><%= link_to "Відгуки", comments_path %></li>
-      <li><%= link_to "Прийом замовлень", root_path %></li>
+      <li><%= link_to "Прийом замовлень", new_order_path %></li>
     </ul>
 
     <% if !user_signed_in? %>
@@ -40,6 +40,11 @@
           <p class="page_title">Відгуки</p>
           <div class="title_buttons">
             <%= link_to "Додати", new_comment_path, class: 'btn round_button' %>
+          </div>
+      <% elsif current_page?(new_order_path) && user_signed_in? && current_user.admin? %>
+          <%= link_to "Повернутись", :back, class: 'btn button_without_border' %>
+          <div class="title_buttons">
+            <%= link_to "Список Замовлень", orders_path, class: 'btn round_button' %>
           </div>
       <% else %>
             <%= link_to "Повернутись", :back, class: 'btn button_without_border' %>

@@ -1,0 +1,12 @@
+<% @orders.each do |order| %>
+    <div class="comment_and_order_wrapper">
+      <h2 class="body"><%= order.name %></h2>
+      <div class="other_labels"><span>Номер телефону:   </span><%= order.phone_number %></div>
+      <div class="date"><%= time_ago_in_words(order.created_at) %></div>
+      <div class="other_labels"><%= link_to "Деталі", order %></div>
+      <% if user_signed_in? && current_user.admin? %>
+          <div class="other_labels"><%= link_to "Редагувати", edit_order_path(order) %></div>
+          <div class="other_labels"><%= link_to "Видалити", order_path(order), method: :delete, data: {confirm: "Чи ви впевненні?"} %></div>
+      <% end %>
+    </div>
+<% end %>

@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(permit_comment)
     if @comment.save
-      flash[:notice] = "Success!"
+      flash[:notice] = "Відгук успішно додано!"
       redirect_to comment_path(@comment)
     else
       flash[:error] = @comment.errors.full_messages

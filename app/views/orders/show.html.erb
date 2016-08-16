@@ -1,0 +1,11 @@
+<div id="comment_and_order_content">
+  <p class="body"><span>Ім'я: </span><br><%= @order.name %></p>
+  <p><span>Номер телефону:   </span><br><%= @order.phone_number %></p>
+  <p><span>Поїздка - Звідки:   </span><br><%= @order.trip_from %></p>
+  <p><span>Поїздка - Куди:   </span><br><%= @order.trip_to %></p>
+  <p><span>Орієнтовна дата відправлення:   </span><br><%= @order.date_of_departure %></p>
+  <p><span>Примітки:   </span><br><%= @order.notes %></p>
+  <p class="date">
+    <span>Коли: </span><br><%= @order.created_at.strftime("%B, %d, %Y") %>
+  </p>
+</div>
