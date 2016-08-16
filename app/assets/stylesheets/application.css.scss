@@ -10,11 +10,15 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require_self
  */
 
 @import 'normalize';
+@import 'welcome.scss';
+
+* {
+  -webkit-font-smoothing: antialiased;
+}
 
 html, body {
   font-family: 'Ubuntu', Charter, sans-serif;
@@ -27,6 +31,37 @@ h1, h2, h3, h4, h5, h6 {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.flash_notice, .flash_alert {
+  padding: 8px 35px 8px 14px;
+  //margin-bottom: 20px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  border: 1px solid #fbeed5;
+  //-webkit-border-radius: 4px;
+  //-moz-border-radius: 4px;
+  //border-radius: 4px;
+  font-size: 14px;
+  line-height: 20px;
+}
+.flash_notice {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #468847;
+}
+.flash_alert {
+  background-color: #f2dede;
+  border-color: #eed3d7;
+  color: #b94a48;
 }
 
 #sidebar {
@@ -57,7 +92,7 @@ a {
     li {
       padding: .5em 0;
       a {
-        color: #9eafba;
+        color: #798a95;
         text-decoration: none;
         transition: all .4s ease;
         &:hover {
@@ -76,14 +111,14 @@ a {
     right: 3em;
     top: 80%;
     font-size: .8em;
-    color: #9eafba;
+    color: #798a95;
   }
   .copyright {
     position: absolute;
     right: 3em;
     top: 82%;
     font-size: .8em;
-    color: #9eafba;
+    color: #798a95;
   }
 }
 
@@ -121,12 +156,12 @@ a {
     padding: 1.1em 3em;
     border-bottom: 1px solid #d6dce0;
     background: #f5f7f9;
-    color: #9eafba;
+    color: #798a95;
     p {
       display: inline;
     }
     a {
-      color: #9eafba;
+      color: #798a95;
       text-decoration: none;
     }
     .page_title {
@@ -134,7 +169,13 @@ a {
     }
     .buttons {
       float: right;
-      margin-top: -5px;
+      .round_button {
+        font-size: .8em;
+        margin-left: .5em;
+      }
+    }
+    .title_buttons {
+      display: inline;
       .round_button {
         font-size: .8em;
         margin-left: .5em;
@@ -172,7 +213,7 @@ a {
       display:inline-block;
     }
     .date {
-      color: #9eafba;
+      color: #798a95;
       margin: .5em 1.2em 0 0;
       display:inline-block;
     }
@@ -197,7 +238,7 @@ a {
       color: #2a2f35;
     }
     .date {
-      color: #9eafba;
+      color: #798a95;
     }
   }
   #page_wrapper {
