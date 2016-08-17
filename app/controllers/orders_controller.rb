@@ -19,8 +19,8 @@ class OrdersController < ApplicationController
       flash[:notice] = "Замовлення успішно надіслано! Очікуйте на дзвінок!"
       redirect_to order_path(@order)
     else
-      flash[:error] = @order.errors.full_messages
-      redirect_ro new_order_path
+      flash[:alert] = @order.errors.full_messages
+      render new_order_path
     end
   end
 

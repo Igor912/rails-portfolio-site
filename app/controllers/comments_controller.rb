@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
       redirect_to comment_path(@comment)
     else
       flash[:alert] = @comment.errors.full_messages
-      redirect_to new_comment_path
+      render new_comment_path
     end
   end
 

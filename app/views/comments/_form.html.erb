@@ -1,7 +1,7 @@
 <%= form_for(@comment, html: {class: "form"}) do |f| %>
 
     <% if @comment.errors.any? %>
-        <div id="errors">
+        <div class="flash_alert">
           <h2><%= pluralize(@comment.errors.count, "error") %> prevented this comment from saving:</h2>
           <ul>
             <% @comment.errors.full_messages.each do |msg| %>
@@ -12,7 +12,7 @@
     <% end %>
 
     <div>
-      <%= f.label 'Ваше Ім\'я:' %><br>
+      <%= f.label 'Ваше Ім\'я: *' %><br>
       <%= f.text_field :user_name %>
     </div>
     <div>
@@ -24,7 +24,7 @@
       <%= f.text_field :email, type: "email" %>
     </div>
     <div>
-      <%= f.label 'Опис відгуку:' %><br>
+      <%= f.label 'Опис відгуку: *' %><br>
       <%= f.text_area :description %>
     </div>
     <div>
