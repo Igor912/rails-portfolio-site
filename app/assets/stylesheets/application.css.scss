@@ -64,6 +64,22 @@ a {
   color: #b94a48;
 }
 
+a.back_to_top {
+  display: none;
+  width: 60px;
+  height: 60px;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  background: #33acb7 url("up_arrow.png") no-repeat center 43%;
+  text-indent: -9999px;
+  //border-radius: 30px;
+
+  &:hover {
+    background: #41cfdd url("up_arrow.png") no-repeat center 43%;
+  }
+}
+
 #sidebar {
   width: 250px;
   position: fixed;
