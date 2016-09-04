@@ -1,5 +1,5 @@
 # Small portfolio web-site on Ruby on Rails.
-http://avtoperevezenia.herokuapp.com/
+[GitHub Pages](http://avtoperevezenia.herokuapp.com)
 
 ###### Technologies used: RoR(with erb views)/Sqlite3, css, jquery.
 ###### App main functionality: page with main info, reviews view(everyone can add new review, and only admin-user have permissions to edit or delete reviews), ordering page, admin panel mini.
