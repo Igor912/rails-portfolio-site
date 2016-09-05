@@ -10,7 +10,7 @@ bundle install;
 rake db:migrate;
 rake routes;
 ```
-Create user with admin permissions:
+In Terminal(continuation): Create user with admin permissions:
 ```
 rails c
 admin_user = User.new(:email => "user@name.com", :password => 'password', :password_confirmation => 'password', :admin => true)
