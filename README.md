@@ -10,7 +10,7 @@ bundle install;
 rake db:migrate;
 rake routes;
 ```
-###### In Terminal(continuation): 
+###### In Terminal(continuation):
 - Create user with admin permissions:
 ```
 rails c
