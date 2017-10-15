@@ -17,3 +17,7 @@ rails c
 admin_user = User.new(:email => "user@name.com", :password => 'password', :password_confirmation => 'password', :admin => true)
 admin_user.save
 ```
+- Run app: 
+```
+rails server
+```
